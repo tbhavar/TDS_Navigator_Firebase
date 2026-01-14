@@ -24,7 +24,7 @@ export function ExpertConnect() {
     >
       <Button
         size="lg"
-        className="rounded-full shadow-lg bg-accent text-accent-foreground hover:bg-accent/90 h-14 w-14 sm:w-auto sm:px-6"
+        className="rounded-full shadow-lg blue-gradient text-primary-foreground hover:opacity-90 transition-opacity h-14 w-14 sm:w-auto sm:px-6"
         aria-label="Consult CA Tanmay on WhatsApp"
       >
         <WhatsAppIconSvg />
