@@ -1,4 +1,7 @@
-import React from 'react';
+
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import {
   Card,
   CardContent,
@@ -7,7 +10,38 @@ import {
 } from '@/components/ui/card';
 import { Bell, CalendarClock } from 'lucide-react';
 
+const getTdsReturnDueDate = () => {
+  const today = new Date();
+  const month = today.getMonth(); // 0-11
+  const quarter = Math.floor(month / 3) + 1;
+
+  let dueDateMonth = '';
+  switch (quarter) {
+    case 1: // Jan-Mar quarter, due date is May 31 for March qtr return
+      dueDateMonth = 'May';
+      break;
+    case 2: // Apr-Jun quarter, due date is July 31
+      dueDateMonth = 'July';
+      break;
+    case 3: // Jul-Sep quarter, due date is Oct 31
+      dueDateMonth = 'October';
+      break;
+    case 4: // Oct-Dec quarter, due date is Jan 31
+      dueDateMonth = 'January';
+      break;
+    default:
+      dueDateMonth = '';
+  }
+  return `31st ${dueDateMonth}`;
+};
+
 export function ComplianceAlerts() {
+  const [dueDate, setDueDate] = useState('');
+
+  useEffect(() => {
+    setDueDate(getTdsReturnDueDate());
+  }, []);
+
   return (
     <div className="mt-12 md:mt-16">
       <h2 className="text-3xl font-bold font-headline mb-6 text-center">
@@ -36,7 +70,9 @@ export function ComplianceAlerts() {
             <Bell className="h-6 w-6 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-4xl font-bold text-primary">31st</div>
+            <div className="text-4xl font-bold text-primary">
+              {dueDate || '31st'}
+            </div>
             <p className="text-xs text-muted-foreground">
               of the month following the quarter end. (Varies for March
               quarter)
