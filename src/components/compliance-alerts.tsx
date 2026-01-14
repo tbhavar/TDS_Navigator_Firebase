@@ -35,11 +35,19 @@ const getTdsReturnDueDate = () => {
   return `31st ${dueDateMonth}`;
 };
 
+const getDepositDueDateMonth = () => {
+  const today = new Date();
+  const nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1);
+  return nextMonth.toLocaleString('default', { month: 'long' });
+};
+
 export function ComplianceAlerts() {
-  const [dueDate, setDueDate] = useState('');
+  const [returnDueDate, setReturnDueDate] = useState('');
+  const [depositDueDateMonth, setDepositDueDateMonth] = useState('');
 
   useEffect(() => {
-    setDueDate(getTdsReturnDueDate());
+    setReturnDueDate(getTdsReturnDueDate());
+    setDepositDueDateMonth(getDepositDueDateMonth());
   }, []);
 
   return (
@@ -56,9 +64,11 @@ export function ComplianceAlerts() {
             <CalendarClock className="h-6 w-6 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-4xl font-bold text-primary">7th</div>
+            <div className="text-4xl font-bold text-primary">
+              7th {depositDueDateMonth || ''}
+            </div>
             <p className="text-xs text-muted-foreground">
-              of every month for the preceding month's deductions.
+              of the month for the preceding month's deductions.
             </p>
           </CardContent>
         </Card>
@@ -71,7 +81,7 @@ export function ComplianceAlerts() {
           </CardHeader>
           <CardContent>
             <div className="text-4xl font-bold text-primary">
-              {dueDate || '31st'}
+              {returnDueDate || '31st'}
             </div>
             <p className="text-xs text-muted-foreground">
               of the month following the quarter end. (Varies for March
