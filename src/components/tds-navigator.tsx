@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
@@ -27,6 +28,22 @@ export function TdsNavigator({ allRates }: TdsNavigatorProps) {
     setIsClient(true);
   }, []);
 
+  const deductorTypes = useMemo(() => {
+    const types = new Set<string>();
+    allRates.forEach((rate) => {
+      rate.deductorTypes.forEach((type) => types.add(type));
+    });
+    return ['all', ...Array.from(types).sort()];
+  }, [allRates]);
+
+  const deducteeTypes = useMemo(() => {
+    const types = new Set<string>();
+    allRates.forEach((rate) => {
+      rate.deducteeTypes.forEach((type) => types.add(type));
+    });
+    return ['all', ...Array.from(types).sort()];
+  }, [allRates]);
+
   const filteredRates = useMemo(() => {
     return allRates.filter((rate) => {
       const searchMatch =
@@ -44,7 +61,14 @@ export function TdsNavigator({ allRates }: TdsNavigatorProps) {
   }, [searchQuery, deductorType, deducteeType, allRates]);
 
   if (!isClient) {
-    return null; // Avoids hydration mismatch
+    // Initial server render
+    return (
+      <div className="space-y-8">
+        <div className="p-6 bg-card rounded-lg shadow-md border">
+          {/* Render a simplified or skeleton version for SSR */}
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -67,11 +91,11 @@ export function TdsNavigator({ allRates }: TdsNavigatorProps) {
               <SelectValue placeholder="Select Deductor Type" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Deductors</SelectItem>
-              <SelectItem value="Individual/HUF">Individual/HUF</SelectItem>
-              <SelectItem value="Domestic Company">Domestic Company</SelectItem>
-              <SelectItem value="Partnership Firm">Partnership Firm</SelectItem>
-              <SelectItem value="Others">Others</SelectItem>
+              {deductorTypes.map((type) => (
+                <SelectItem key={type} value={type}>
+                  {type === 'all' ? 'All Deductors' : type}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
           <Select value={deducteeType} onValueChange={setDeducteeType}>
@@ -79,11 +103,11 @@ export function TdsNavigator({ allRates }: TdsNavigatorProps) {
               <SelectValue placeholder="Select Deductee Type" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Deductees</SelectItem>
-              <SelectItem value="Resident">Resident</SelectItem>
-              <SelectItem value="Non-Resident">Non-Resident</SelectItem>
-              <SelectItem value="Company">Company</SelectItem>
-              <SelectItem value="Non-Company">Non-Company</SelectItem>
+              {deducteeTypes.map((type) => (
+                <SelectItem key={type} value={type}>
+                  {type === 'all' ? 'All Deductees' : type}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>

@@ -1,9 +1,10 @@
+
 {
   "tdsRates": [
     {
       "id": "1",
       "section": "192",
-      "natureOfPayment": "Salaries",
+      "natureOfPayment": "Payment of salary",
       "threshold": null,
       "panRequiredRate": "As per slab rates",
       "noPanRate": "As per slab rates",
@@ -12,9 +13,9 @@
     },
     {
       "id": "2",
-      "section": "193",
-      "natureOfPayment": "Interest on Securities",
-      "threshold": "₹2,500 (debentures)",
+      "section": "192A",
+      "natureOfPayment": "Payment of accumulated balance of provident fund which is taxable in the hands of an employee.",
+      "threshold": "₹50,000",
       "panRequiredRate": "10%",
       "noPanRate": "20%",
       "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
@@ -22,9 +23,9 @@
     },
     {
       "id": "3",
-      "section": "194A",
-      "natureOfPayment": "Interest (other than interest on securities)",
-      "threshold": "₹40,000 (banks/post office), ₹5,000 (others)",
+      "section": "193",
+      "natureOfPayment": "Interest on Securities",
+      "threshold": "₹10,000 for 7.75% Savings (Taxable) Bonds 2018. No threshold for others.",
       "panRequiredRate": "10%",
       "noPanRate": "20%",
       "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
@@ -32,6 +33,46 @@
     },
     {
       "id": "4",
+      "section": "194",
+      "natureOfPayment": "Dividend other than the dividend as referred to in section 115-O",
+      "threshold": "₹5,000",
+      "panRequiredRate": "10%",
+      "noPanRate": "20%",
+      "deductorTypes": ["Domestic Company"],
+      "deducteeTypes": ["Resident"]
+    },
+    {
+      "id": "5",
+      "section": "194A",
+      "natureOfPayment": "Interest (other than interest on securities)",
+      "threshold": "₹40,000 (banks/post office), ₹50,000 (senior citizens), ₹5,000 (others)",
+      "panRequiredRate": "10%",
+      "noPanRate": "20%",
+      "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
+      "deducteeTypes": ["Resident"]
+    },
+    {
+      "id": "6",
+      "section": "194B",
+      "natureOfPayment": "Winnings from lottery or crossword puzzle or card game and other game of any sort",
+      "threshold": "₹10,000",
+      "panRequiredRate": "30%",
+      "noPanRate": "30%",
+      "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
+      "deducteeTypes": ["Resident", "Non-Resident"]
+    },
+    {
+      "id": "7",
+      "section": "194BA",
+      "natureOfPayment": "Winnings from online games",
+      "threshold": null,
+      "panRequiredRate": "30%",
+      "noPanRate": "30%",
+      "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
+      "deducteeTypes": ["Resident", "Non-Resident"]
+    },
+    {
+      "id": "8",
       "section": "194C",
       "natureOfPayment": "Payment to Contractors",
       "threshold": "₹30,000 per contract or ₹1,00,000 p.a.",
@@ -41,7 +82,37 @@
       "deducteeTypes": ["Resident"]
     },
     {
-      "id": "5",
+      "id": "9",
+      "section": "194D",
+      "natureOfPayment": "Insurance commission",
+      "threshold": "₹15,000",
+      "panRequiredRate": "5% (other than company), 10% (domestic company)",
+      "noPanRate": "20%",
+      "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
+      "deducteeTypes": ["Resident", "Company", "Non-Company"]
+    },
+    {
+      "id": "10",
+      "section": "194DA",
+      "natureOfPayment": "Payment in respect of life insurance policy",
+      "threshold": "₹1,00,000",
+      "panRequiredRate": "5%",
+      "noPanRate": "20%",
+      "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
+      "deducteeTypes": ["Resident"]
+    },
+    {
+      "id": "11",
+      "section": "194EE",
+      "natureOfPayment": "Payment in respect of deposit under National Savings Scheme",
+      "threshold": "₹2,500",
+      "panRequiredRate": "10%",
+      "noPanRate": "20%",
+      "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
+      "deducteeTypes": ["Resident"]
+    },
+    {
+      "id": "12",
       "section": "194H",
       "natureOfPayment": "Commission or Brokerage",
       "threshold": "₹15,000 p.a.",
@@ -51,7 +122,7 @@
       "deducteeTypes": ["Resident"]
     },
     {
-      "id": "6",
+      "id": "13",
       "section": "194I",
       "natureOfPayment": "Rent",
       "threshold": "₹2,40,000 p.a.",
@@ -61,24 +132,94 @@
       "deducteeTypes": ["Resident", "Non-Resident"]
     },
     {
-      "id": "7",
+      "id": "14",
       "section": "194J",
       "natureOfPayment": "Fees for Professional or Technical Services",
       "threshold": "₹30,000 p.a.",
-      "panRequiredRate": "2% (call center/technical services), 10% (others)",
+      "panRequiredRate": "2% (technical services/royalty for sale of software), 10% (others)",
       "noPanRate": "20%",
       "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
       "deducteeTypes": ["Resident"]
     },
     {
-      "id": "8",
+      "id": "15",
+      "section": "194K",
+      "natureOfPayment": "Payment of any income in respect of units of a mutual fund",
+      "threshold": "₹5,000",
+      "panRequiredRate": "10%",
+      "noPanRate": "20%",
+      "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
+      "deducteeTypes": ["Resident"]
+    },
+    {
+      "id": "16",
+      "section": "194LA",
+      "natureOfPayment": "Payment of compensation on acquisition of certain immovable property",
+      "threshold": "₹2,50,000",
+      "panRequiredRate": "10%",
+      "noPanRate": "20%",
+      "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
+      "deducteeTypes": ["Resident"]
+    },
+    {
+      "id": "17",
+      "section": "194N",
+      "natureOfPayment": "Payment of certain amounts in cash",
+      "threshold": "₹1 Crore (Non-filer: ₹20 Lakh)",
+      "panRequiredRate": "2%",
+      "noPanRate": "20% (if required to file ITR but not filed)",
+      "deductorTypes": ["Banking Company", "Co-operative Bank", "Post Office"],
+      "deducteeTypes": ["Resident", "Non-Resident"]
+    },
+    {
+      "id": "18",
+      "section": "194O",
+      "natureOfPayment": "Payment of certain sums by e-commerce operator to e-commerce participant",
+      "threshold": "₹5,00,000 (for individual/HUF)",
+      "panRequiredRate": "1%",
+      "noPanRate": "5%",
+      "deductorTypes": ["E-commerce Operator"],
+      "deducteeTypes": ["Resident"]
+    },
+    {
+      "id": "19",
+      "section": "194Q",
+      "natureOfPayment": "Payment of certain sum for purchase of goods",
+      "threshold": "₹50,00,000",
+      "panRequiredRate": "0.1%",
+      "noPanRate": "5%",
+      "deductorTypes": ["Buyer with turnover > ₹10 Crore"],
+      "deducteeTypes": ["Resident"]
+    },
+    {
+      "id": "20",
+      "section": "194R",
+      "natureOfPayment": "Deduction of tax on benefit or perquisite in respect of business or profession",
+      "threshold": "₹20,000",
+      "panRequiredRate": "10%",
+      "noPanRate": "20%",
+      "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
+      "deducteeTypes": ["Resident"]
+    },
+    {
+      "id": "21",
       "section": "195",
       "natureOfPayment": "Payment to Non-residents",
       "threshold": null,
       "panRequiredRate": "Varies as per DTAA/Act",
-      "noPanRate": "Varies",
+      "noPanRate": "Varies as per DTAA/Act + Surcharge & Cess",
       "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
       "deducteeTypes": ["Non-Resident", "Company", "Non-Company"]
+    },
+    {
+      "id": "22",
+      "section": "206AB",
+      "natureOfPayment": "Higher TDS/TCS rates for non-filers of income tax return",
+      "threshold": null,
+      "panRequiredRate": "Twice the specified rate or 5%, whichever is higher",
+      "noPanRate": "Twice the specified rate or 5%, whichever is higher",
+      "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
+      "deducteeTypes": ["Specified Person"]
     }
   ]
 }
