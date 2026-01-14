@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -13,20 +12,20 @@ import { Bell, CalendarClock, AlertTriangle } from 'lucide-react';
 const getTdsReturnDueDate = () => {
   const today = new Date();
   const month = today.getMonth(); // 0-11
-  const quarter = Math.floor(month / 3) + 1;
+  const quarter = Math.floor(month / 3); // 0, 1, 2, 3
 
   let dueDateMonth = '';
   switch (quarter) {
-    case 1: // Jan-Mar quarter, due date is May 31
+    case 0: // Jan-Mar quarter, due date is May 31
       dueDateMonth = 'May';
       break;
-    case 2: // Apr-Jun quarter, due date is July 31
+    case 1: // Apr-Jun quarter, due date is July 31
       dueDateMonth = 'July';
       break;
-    case 3: // Jul-Sep quarter, due date is Oct 31
+    case 2: // Jul-Sep quarter, due date is Oct 31
       dueDateMonth = 'October';
       break;
-    case 4: // Oct-Dec quarter, due date is Jan 31
+    case 3: // Oct-Dec quarter, due date is Jan 31
       dueDateMonth = 'January';
       break;
     default:
@@ -36,40 +35,46 @@ const getTdsReturnDueDate = () => {
 };
 
 const getPreviousQuarterDueDate = () => {
-  const today = new Date();
-  let prevQuarterMonth = today.getMonth() - 3;
-  if (prevQuarterMonth < 0) {
-    prevQuarterMonth += 12;
-  }
-  const prevQuarter = Math.floor(prevQuarterMonth / 3) + 1;
-  const year = today.getFullYear();
+    const today = new Date();
+    const currentMonth = today.getMonth(); // 0-11
+    const currentYear = today.getFullYear();
 
-  let dueDate = '';
-  let quarterName = '';
+    // Determine the quarter of the date 3 months ago
+    const prevDate = new Date(today);
+    prevDate.setMonth(prevDate.getMonth() - 3);
+    
+    const prevQuarterMonth = prevDate.getMonth();
+    const prevQuarterYear = prevDate.getFullYear();
+    const prevQuarter = Math.floor(prevQuarterMonth / 3); // 0, 1, 2, 3
 
-  switch (prevQuarter) {
-    case 1: // Jan-Mar
-      quarterName = 'Jan-Mar';
-      dueDate = `31st May ${year}`;
-      break;
-    case 2: // Apr-Jun
-      quarterName = 'Apr-Jun';
-      dueDate = `31st July ${year}`;
-      break;
-    case 3: // Jul-Sep
-      quarterName = 'Jul-Sep';
-      dueDate = `31st Oct ${year}`;
-      break;
-    case 4: // Oct-Dec
-      quarterName = 'Oct-Dec';
-      dueDate = `31st Jan ${year + 1}`;
-      break;
-    default:
-      dueDate = '';
-  }
+    let dueDate = '';
+    let quarterName = '';
 
-  return { dueDate, quarterName };
+    switch (prevQuarter) {
+        case 0: // Jan-Mar
+            quarterName = `Jan-Mar ${prevQuarterYear}`;
+            dueDate = `31st May ${prevQuarterYear}`;
+            break;
+        case 1: // Apr-Jun
+            quarterName = `Apr-Jun ${prevQuarterYear}`;
+            dueDate = `31st July ${prevQuarterYear}`;
+            break;
+        case 2: // Jul-Sep
+            quarterName = `Jul-Sep ${prevQuarterYear}`;
+            dueDate = `31st Oct ${prevQuarterYear}`;
+            break;
+        case 3: // Oct-Dec
+            quarterName = `Oct-Dec ${prevQuarterYear}`;
+            dueDate = `31st Jan ${prevQuarterYear + 1}`;
+            break;
+        default:
+            dueDate = '';
+            quarterName = '';
+    }
+
+    return { dueDate, quarterName };
 };
+
 
 const getDepositDueDateMonth = () => {
   const today = new Date();
