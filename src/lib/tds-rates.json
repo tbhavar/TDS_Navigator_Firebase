@@ -1,0 +1,84 @@
+{
+  "tdsRates": [
+    {
+      "id": "1",
+      "section": "192",
+      "natureOfPayment": "Salaries",
+      "threshold": null,
+      "panRequiredRate": "As per slab rates",
+      "noPanRate": "As per slab rates",
+      "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
+      "deducteeTypes": ["Resident", "Non-Resident"]
+    },
+    {
+      "id": "2",
+      "section": "193",
+      "natureOfPayment": "Interest on Securities",
+      "threshold": "₹2,500 (debentures)",
+      "panRequiredRate": "10%",
+      "noPanRate": "20%",
+      "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
+      "deducteeTypes": ["Resident"]
+    },
+    {
+      "id": "3",
+      "section": "194A",
+      "natureOfPayment": "Interest (other than interest on securities)",
+      "threshold": "₹40,000 (banks/post office), ₹5,000 (others)",
+      "panRequiredRate": "10%",
+      "noPanRate": "20%",
+      "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
+      "deducteeTypes": ["Resident"]
+    },
+    {
+      "id": "4",
+      "section": "194C",
+      "natureOfPayment": "Payment to Contractors",
+      "threshold": "₹30,000 per contract or ₹1,00,000 p.a.",
+      "panRequiredRate": "1% (Individual/HUF), 2% (Others)",
+      "noPanRate": "20%",
+      "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
+      "deducteeTypes": ["Resident"]
+    },
+    {
+      "id": "5",
+      "section": "194H",
+      "natureOfPayment": "Commission or Brokerage",
+      "threshold": "₹15,000 p.a.",
+      "panRequiredRate": "5%",
+      "noPanRate": "20%",
+      "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
+      "deducteeTypes": ["Resident"]
+    },
+    {
+      "id": "6",
+      "section": "194I",
+      "natureOfPayment": "Rent",
+      "threshold": "₹2,40,000 p.a.",
+      "panRequiredRate": "2% (Plant & Machinery), 10% (Land, Building, Furniture)",
+      "noPanRate": "20%",
+      "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
+      "deducteeTypes": ["Resident", "Non-Resident"]
+    },
+    {
+      "id": "7",
+      "section": "194J",
+      "natureOfPayment": "Fees for Professional or Technical Services",
+      "threshold": "₹30,000 p.a.",
+      "panRequiredRate": "2% (call center/technical services), 10% (others)",
+      "noPanRate": "20%",
+      "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
+      "deducteeTypes": ["Resident"]
+    },
+    {
+      "id": "8",
+      "section": "195",
+      "natureOfPayment": "Payment to Non-residents",
+      "threshold": null,
+      "panRequiredRate": "Varies as per DTAA/Act",
+      "noPanRate": "Varies",
+      "deductorTypes": ["Individual/HUF", "Domestic Company", "Partnership Firm", "Others"],
+      "deducteeTypes": ["Non-Resident", "Company", "Non-Company"]
+    }
+  ]
+}
